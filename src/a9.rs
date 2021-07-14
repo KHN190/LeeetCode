@@ -18,7 +18,9 @@ pub fn main() {
 
 pub fn is_palindrome(x: i32) -> bool {
     // special case
-    if x < 0 || (x > 0 && x % 10 == 0) { return false; }
+    if x < 0 || (x > 0 && x % 10 == 0) {
+        return false;
+    }
 
     // get reversed number
     let rev = crate::a7::reverse(x);
