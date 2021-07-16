@@ -3,20 +3,6 @@
 // Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
 // -231 <= x <= 231 - 1
 
-// For C++, it will ACTUALLY overflow, so they check like:
-//
-// int addOvf(int* result, int a, int b)
-// {
-//     *result = a + b;
-//     if(a > 0 && b > 0 && *result < 0)
-//         return -1;
-//     if(a < 0 && b < 0 && *result > 0)
-//         return -1;
-//     return 0;
-// }
-//
-// Java overflows too!
-
 // 考點在於 overflow 的處理。
 
 #[test]

@@ -8,13 +8,6 @@
 // -10^9 <= target <= 10^9
 // Only one valid answer exists.
 
-// 1. 為什麼要用 HashMap? 為什麼用了就可以減少時間？
-//    在找到另一個數的時候，把遍歷的 O(n) 簡化為查詢 O(1) ->
-//    實際上 HashSet 就可以，但我們進一步需要 index 所以用 HashMap
-//
-// 2. *如果不止一對，要返回所有的 index，怎麼辦？
-// 3. *如果不止一對，要返回 index 的數量，怎麼辦？
-
 #[test]
 fn run_test() {
     let mut nums = vec![2, 7, 11, 15];

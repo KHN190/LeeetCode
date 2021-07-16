@@ -1,7 +1,6 @@
 // https://leetcode.com/problems/palindrome-number/
 
-// 0. 和 a7 解法一樣
-// 1. 能用 stack 解決嗎
+// LC7 解法一樣。
 
 #[test]
 fn run_test() {

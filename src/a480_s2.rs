@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/sliding-window-median/
+
 // Binary Search + Vector solution
 
 pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
@@ -7,10 +9,7 @@ pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
     // insert all, and keep them in order
     for (ix, i) in nums.iter().enumerate() {
         // find where to insert
-        let idx = match window.binary_search(i) {
-            Ok(x) => x,
-            Err(x) => x,
-        };
+        let idx = match window.binary_search(i) { Ok(x) => x, Err(x) => x };
         // add new elem
         window.insert(idx, *i);
 
