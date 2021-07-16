@@ -19,15 +19,13 @@
 
 // 考點在於 overflow 的處理。
 
-// run test cases
-pub fn main() {
+#[test]
+fn run_test() {
     assert_eq!(reverse(123), 321);
     assert_eq!(reverse(-123), -321);
     assert_eq!(reverse(120), 21);
     assert_eq!(reverse(0), 0);
     assert_eq!(reverse(1534236469), 0);
-
-    println!("success.");
 }
 
 pub fn reverse(x: i32) -> i32 {

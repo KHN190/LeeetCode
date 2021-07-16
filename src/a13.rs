@@ -6,28 +6,29 @@
 
 // 這實際上是一道 parser 相關的題。
 
-// run test cases
-pub fn main() {
+#[test]
+fn run_test() {
     assert_eq!(roman_to_int("IX".into()), 9);
     assert_eq!(roman_to_int("IV".into()), 4);
     assert_eq!(roman_to_int("LVIII".into()), 58);
     assert_eq!(roman_to_int("MCMXCIV".into()), 1994);
-
-    println!("success.");
 }
 
 pub fn roman_to_int(s: String) -> i32 {
     use std::collections::HashMap;
     // static dict from Roman to int
-    let roman_dict: HashMap::<char, i32> =
-        [('I', 1),
-         ('V', 5),
-         ('X', 10),
-         ('L', 50),
-         ('C', 100),
-         ('D', 500),
-         ('M', 1000)]
-         .iter().cloned().collect();
+    let roman_dict: HashMap<char, i32> = [
+        ('I', 1),
+        ('V', 5),
+        ('X', 10),
+        ('L', 50),
+        ('C', 100),
+        ('D', 500),
+        ('M', 1000),
+    ]
+    .iter()
+    .cloned()
+    .collect();
 
     // if next char is greater than this char, we deduct
     // otherwise, just add from left to right
@@ -40,7 +41,11 @@ pub fn roman_to_int(s: String) -> i32 {
         let curr_char = &text.chars().nth(0).unwrap();
         // convert char -> int
         let curr_val = roman_dict[&curr_char];
-        let next_val = if next_char == &'\0' { 0 } else { roman_dict[next_char] };
+        let next_val = if next_char == &'\0' {
+            0
+        } else {
+            roman_dict[next_char]
+        };
 
         if next_val > curr_val {
             num += next_val - curr_val;

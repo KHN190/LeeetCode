@@ -15,8 +15,8 @@
 // 2. *如果不止一對，要返回所有的 index，怎麼辦？
 // 3. *如果不止一對，要返回 index 的數量，怎麼辦？
 
-// run test cases
-pub fn main() {
+#[test]
+fn run_test() {
     let mut nums = vec![2, 7, 11, 15];
     assert!(vec_eq(two_sum(nums, 9), vec!(0, 1)));
 
@@ -25,10 +25,9 @@ pub fn main() {
 
     nums = vec![3, 3];
     assert!(vec_eq(two_sum(nums, 6), vec!(0, 1)));
-
-    println!("success.");
 }
 
+#[cfg(test)]
 fn vec_eq(v1: Vec<i32>, v2: Vec<i32>) -> bool {
     if v1.len() != v2.len() {
         return false;

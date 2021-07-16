@@ -11,8 +11,8 @@
 //   2. 處理很大的數字 -> 實際用 String 就可以了
 //      結合 char.is_numeric 等，實際可以當作大數使用
 
-// run test cases
-pub fn main() {
+#[test]
+fn run_test() {
     assert_eq!(remove_leading_zeros(String::from("01")), String::from("1"));
 
     assert_eq!(num_different_integers(String::from("a1b01c001")), 1); // 1,1,1
@@ -22,8 +22,6 @@ pub fn main() {
         num_different_integers(String::from("192383183928778851682383a2089984061937879119")),
         2
     );
-
-    println!("success.");
 }
 
 pub fn num_different_integers(word: String) -> i32 {
