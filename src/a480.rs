@@ -99,8 +99,6 @@ pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
         else { lhs.push(*i); }
 
         balance(&mut lhs, &mut rhs);
-        println!("* add new {}", i);
-        println!("  lhs {:?}, rhs {:?}", &lhs, &rhs);
 
         // remove oldest elem
         let total = (rhs.len() + lhs.len()) as i32;
@@ -111,8 +109,6 @@ pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
             else { lhs = rebuild_lhs_without(lhs, *oldest); }
 
             balance(&mut lhs, &mut rhs);
-            println!("* remove oldest {}", oldest);
-            println!("  lhs {:?}, rhs {:?}", &lhs, &rhs);
         }
         // we return the median!
         if total >= k {
@@ -123,8 +119,6 @@ pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
                 (*lhs.peek().unwrap()) as f64 * 0.5f64 + rhs.peek().unwrap().0 as f64 * 0.5f64
             };
             res.push(median);
-
-            println!("median: {}\n", &median);
         }
     }
     res
