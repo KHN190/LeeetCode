@@ -6,14 +6,7 @@
 
 // 這實際上是一道 parser 相關的題。
 
-#[test]
-fn run_test() {
-    assert_eq!(roman_to_int("IX".into()), 9);
-    assert_eq!(roman_to_int("IV".into()), 4);
-    assert_eq!(roman_to_int("LVIII".into()), 58);
-    assert_eq!(roman_to_int("MCMXCIV".into()), 1994);
-}
-
+#[allow(dead_code)]
 pub fn roman_to_int(s: String) -> i32 {
     use std::collections::HashMap;
     // static dict from Roman to int
@@ -63,4 +56,12 @@ pub fn roman_to_int(s: String) -> i32 {
 
 fn next(s: &str) -> &str {
     &s[1..s.len()]
+}
+
+#[test]
+fn run() {
+    assert_eq!(roman_to_int("IX".into()), 9);
+    assert_eq!(roman_to_int("IV".into()), 4);
+    assert_eq!(roman_to_int("LVIII".into()), 58);
+    assert_eq!(roman_to_int("MCMXCIV".into()), 1994);
 }

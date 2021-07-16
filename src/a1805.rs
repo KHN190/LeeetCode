@@ -12,7 +12,7 @@
 //      結合 char.is_numeric 等，實際可以當作大數使用
 
 #[test]
-fn run_test() {
+fn run() {
     assert_eq!(remove_leading_zeros(String::from("01")), String::from("1"));
 
     assert_eq!(num_different_integers(String::from("a1b01c001")), 1); // 1,1,1
@@ -24,6 +24,7 @@ fn run_test() {
     );
 }
 
+#[allow(dead_code)]
 pub fn num_different_integers(word: String) -> i32 {
     use std::collections::HashSet;
     use std::iter::FromIterator;

@@ -2,6 +2,7 @@
 
 // Binary Search + Vector solution
 
+#[allow(dead_code)]
 pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
     let mut window = Vec::<i32>::new();
 
@@ -9,7 +10,10 @@ pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
     // insert all, and keep them in order
     for (ix, i) in nums.iter().enumerate() {
         // find where to insert
-        let idx = match window.binary_search(i) { Ok(x) => x, Err(x) => x };
+        let idx = match window.binary_search(i) {
+            Ok(x) => x,
+            Err(x) => x,
+        };
         // add new elem
         window.insert(idx, *i);
 
@@ -34,7 +38,7 @@ pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
 }
 
 #[test]
-fn run_test() {
+fn run() {
     // test different windows
     let nums = vec![1, 2, 3, 4, 5, 1, 2];
     assert_eq!(

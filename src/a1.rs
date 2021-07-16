@@ -33,6 +33,7 @@ fn vec_eq(v1: Vec<i32>, v2: Vec<i32>) -> bool {
     true
 }
 
+#[allow(dead_code)]
 pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
     use std::collections::HashMap;
 

@@ -13,6 +13,7 @@ fn run_test() {
     assert_eq!(is_palindrome(1021), false);
 }
 
+#[allow(dead_code)]
 pub fn is_palindrome(x: i32) -> bool {
     // special case
     if x < 0 || (x > 0 && x % 10 == 0) {

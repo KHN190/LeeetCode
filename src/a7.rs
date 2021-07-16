@@ -5,15 +5,6 @@
 
 // 考點在於 overflow 的處理。
 
-#[test]
-fn run_test() {
-    assert_eq!(reverse(123), 321);
-    assert_eq!(reverse(-123), -321);
-    assert_eq!(reverse(120), 21);
-    assert_eq!(reverse(0), 0);
-    assert_eq!(reverse(1534236469), 0);
-}
-
 pub fn reverse(x: i32) -> i32 {
     // special case: 0
     if x == 0 {
@@ -41,4 +32,13 @@ pub fn reverse(x: i32) -> i32 {
     }
 
     result.checked_mul(sign).unwrap_or(0)
+}
+
+#[test]
+fn run() {
+    assert_eq!(reverse(123), 321);
+    assert_eq!(reverse(-123), -321);
+    assert_eq!(reverse(120), 21);
+    assert_eq!(reverse(0), 0);
+    assert_eq!(reverse(1534236469), 0);
 }

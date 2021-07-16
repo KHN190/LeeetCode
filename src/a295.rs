@@ -1,33 +1,55 @@
 // https://leetcode.com/problems/find-median-from-data-stream/
 
-
-struct MedianFinder {
-
+pub(crate) struct MedianFinder {
+    window: Vec<i32>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
+#[allow(dead_code)]
 impl MedianFinder {
-
-    /** initialize your data structure here. */
-    fn new() -> Self {
-
+    pub fn new() -> Self {
+        Self {
+            window: Vec::with_capacity(50000),
+        }
     }
 
-    fn add_num(&self, num: i32) {
-
+    pub fn len(&self) -> usize {
+        self.window.len()
     }
 
-    fn find_median(&self) -> f64 {
+    pub fn add_num(&mut self, num: i32) {
+        // find where to insert
+        let idx = match self.window.binary_search(&num) {
+            Ok(x) => x,
+            Err(x) => x,
+        };
+        // add new elem
+        self.window.insert(idx, num);
+    }
 
+    pub fn find_median(&self) -> f64 {
+        // get median
+        // @warn index calculation!
+        let len = self.window.len();
+        let mid = len / 2;
+        let median = if len % 2 == 1 {
+            self.window[mid] as f64
+        } else {
+            self.window[mid - 1] as f64 * 0.5 + self.window[mid] as f64 * 0.5
+        };
+        median
     }
 }
 
-/**
- * Your MedianFinder object will be instantiated and called as such:
- * let obj = MedianFinder::new();
- * obj.add_num(num);
- * let ret_2: f64 = obj.find_median();
- */
+#[test]
+fn run() {
+    let mut obj = MedianFinder::new();
+
+    obj.add_num(2);
+    assert_eq!(obj.find_median(), 2.0);
+
+    obj.add_num(1);
+    assert_eq!(obj.find_median(), 1.5);
+
+    obj.add_num(3);
+    assert_eq!(obj.find_median(), 2.0);
+}

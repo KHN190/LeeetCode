@@ -11,7 +11,7 @@ use std::cmp::Reverse; // MaxHeap
 use std::collections::BinaryHeap; // for MinHeap
 
 #[test]
-fn run_test() {
+fn run() {
     // test different windows
     let nums = vec![1, 2, 3, 4, 5, 1, 2];
     assert_eq!(
@@ -35,6 +35,7 @@ fn run_test() {
     assert_eq!(median_sliding_window(nums.clone(), 2), vec!(2147483647.0));
 }
 
+#[allow(dead_code)]
 pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
     let mut lhs = BinaryHeap::<i32>::new();
     let mut rhs = BinaryHeap::<Reverse<i32>>::new();
