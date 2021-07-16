@@ -121,5 +121,5 @@ fn run_large_data() {
     assert_eq!(o2.len(), 100000);
 
     // this solution uses much less memory
-    assert!((m2 - m1) > (m1 - m0) * 1000.0);
+    assert!((m2 - m1) > (m1 - m0) * 100.0);
 }

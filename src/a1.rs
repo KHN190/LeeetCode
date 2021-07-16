@@ -9,7 +9,7 @@
 // Only one valid answer exists.
 
 #[test]
-fn run_test() {
+fn run() {
     let mut nums = vec![2, 7, 11, 15];
     assert!(vec_eq(two_sum(nums, 9), vec!(0, 1)));
 
