@@ -3,8 +3,8 @@
 // FollowUp: run-length compress
 
 pub(crate) struct MedianFinder {
-    nums: Vec::<i32>,
-    freq: Vec::<usize>,
+    nums: Vec<i32>,
+    freq: Vec<usize>,
 }
 
 #[allow(dead_code)]
@@ -12,7 +12,7 @@ impl MedianFinder {
     pub fn new() -> Self {
         Self {
             nums: Vec::new(),
-            freq: Vec::new()
+            freq: Vec::new(),
         }
     }
 
@@ -26,7 +26,7 @@ impl MedianFinder {
             Ok(x) => {
                 // increase freq
                 self.freq[x] += 1;
-            },
+            }
             Err(x) => {
                 // add new num
                 self.nums.insert(x, num);
@@ -66,8 +66,10 @@ impl MedianFinder {
                 if n2 == None && cnt > mid {
                     n2 = Some(self.nums[i] as f64);
                 }
-                if n1 != None && n2 != None { break; }
-            };
+                if n1 != None && n2 != None {
+                    break;
+                }
+            }
             median = n1.unwrap() * 0.5 + n2.unwrap() * 0.5;
         };
         median
@@ -90,7 +92,7 @@ fn run() {
 
 #[test]
 fn run_large_data() {
-    use jemalloc_ctl::{ epoch, stats };
+    use jemalloc_ctl::{epoch, stats};
     let e = epoch::mib().unwrap();
     let allocated = stats::allocated::mib().unwrap();
 
