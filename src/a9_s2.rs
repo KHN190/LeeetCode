@@ -1,15 +1,28 @@
 // https://leetcode.com/problems/palindrome-number/
 
-#[allow(dead_code)]
 pub fn is_palindrome(x: i32) -> bool {
     // special case
     if x < 0 || (x > 0 && x % 10 == 0) {
         return false;
     }
-    // reverse
-    let rev = crate::a7::reverse(x);
+    // reverse num
+    let mut num = vec![];
+    let mut n = x;
 
-    x == rev
+    while n > 0 {
+        num.push(n % 10);
+        n /= 10;
+    }
+    // is it palindrome?
+    let mid = num.len() / 2;
+    let len = num.len();
+
+    for i in 0..mid {
+        if num[i] != num[len - i - 1] {
+            return false;
+        }
+    }
+    true
 }
 
 #[test]

@@ -20,6 +20,8 @@ for x in os.listdir('src'):
     if m:
         fs.append(m[0])
 
+print("Generating {} solutions.".format(len(fs)))
+
 # write mods
 header = '\n'.join(['mod ' + x + ';' for x in fs])
 
@@ -28,3 +30,4 @@ with open('src/main.rs', 'w+') as f:
 
 # format main.rs
 os.system('rustfmt src/main.rs')
+os.system('cargo test')
