@@ -91,6 +91,7 @@ fn run() {
 }
 
 #[test]
+#[ignore]
 fn run_large_data() {
     use jemalloc_ctl::{epoch, stats};
     let e = epoch::mib().unwrap();
