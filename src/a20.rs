@@ -12,15 +12,36 @@ fn run() {
 
 #[allow(dead_code)]
 pub fn is_valid(s: String) -> bool {
-    let mut stack: Vec<char> = vec!();
+    let mut stack: Vec<char> = vec![];
     for c in s.chars() {
-        if stack.is_empty() { stack.push(c); }
-        else {
+        if stack.is_empty() {
+            stack.push(c);
+        } else {
             match stack.last().unwrap() {
-                '(' => if c == ')' { stack.pop(); } else { stack.push(c); }
-                '[' => if c == ']' { stack.pop(); } else { stack.push(c); }
-                '{' => if c == '}' { stack.pop(); } else { stack.push(c); }
-                _ => { return false; }
+                '(' => {
+                    if c == ')' {
+                        stack.pop();
+                    } else {
+                        stack.push(c);
+                    }
+                }
+                '[' => {
+                    if c == ']' {
+                        stack.pop();
+                    } else {
+                        stack.push(c);
+                    }
+                }
+                '{' => {
+                    if c == '}' {
+                        stack.pop();
+                    } else {
+                        stack.push(c);
+                    }
+                }
+                _ => {
+                    return false;
+                }
             }
         }
     }
