@@ -1,6 +1,7 @@
 mod a1;
 mod a13;
 mod a1805;
+mod a20;
 mod a295;
 mod a295_s2;
 mod a295_s3;
