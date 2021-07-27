@@ -52,10 +52,8 @@ pub fn longest_valid_parentheses(s: String) -> i32 {
 
 #[test]
 fn run() {
-    // assert_eq!(longest_valid_parentheses("(()".into()), 2);
-    // assert_eq!(longest_valid_parentheses(")()())".into()), 4);
-    // assert_eq!(longest_valid_parentheses("".into()), 0);
+    assert_eq!(longest_valid_parentheses("(()".into()), 2);
+    assert_eq!(longest_valid_parentheses(")()())".into()), 4);
+    assert_eq!(longest_valid_parentheses("".into()), 0);
     assert_eq!(longest_valid_parentheses("()(()".into()), 2);
-
-    assert!(false);
 }
