@@ -5,6 +5,7 @@ mod a20;
 mod a295;
 mod a295_s2;
 mod a295_s3;
+mod a32;
 mod a480;
 mod a480_s2;
 mod a7;

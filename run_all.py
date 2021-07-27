@@ -14,13 +14,15 @@ fn main() {
 '''
 
 # get *.rs except main
-fs = []
+fs, uniq_fs = [], set()
 for x in os.listdir('src'):
     m = re.findall(r'(a\d+[_]?.*)\.rs', x)
-    if m:
-        fs.append(m[0])
+    n = re.findall(r'a(\d+)\.rs', x)
+    if m: fs.append(m[0])
+    if n: uniq_fs.add(n[0])
 
-print("Generating {} solutions.".format(len(fs)))
+
+print("Generating {} solutions, {} unique.".format(len(fs), len(uniq_fs)))
 
 # write mods
 header = '\n'.join(['mod ' + x + ';' for x in fs])
