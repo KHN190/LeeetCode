@@ -22,12 +22,13 @@ pub fn find_repeated_dna_sequences(s: String) -> Vec<String> {
         let cur = &s[i..i + 10];
 
         if found.contains(cur) {
-            repeat.insert(cur.to_string());
+            repeat.insert(cur);
         } else {
-            found.insert(cur.to_string());
+            found.insert(cur);
         }
     }
-    repeat.into_iter().collect()
+    // convert to String until needed
+    repeat.iter().map(|x| x.to_string()).collect()
 }
 
 #[test]
