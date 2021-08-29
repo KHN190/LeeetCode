@@ -33,7 +33,9 @@ pub fn longest_valid_parentheses(s: String) -> i32 {
     let mut max: i32 = 0;
 
     for (i, c) in s.chars().enumerate() {
-        if c == '(' { open += 1; }
+        if c == '(' {
+            open += 1;
+        }
         if c == ')' && open > 0 {
             // Match found
             res[i] = 2 + res[i - 1];
@@ -44,11 +46,12 @@ pub fn longest_valid_parentheses(s: String) -> i32 {
             }
             open -= 1;
         }
-        if res[i] > max { max = res[i]; }
+        if res[i] > max {
+            max = res[i];
+        }
     }
     max
 }
-
 
 #[test]
 fn run() {
