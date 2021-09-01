@@ -11,6 +11,7 @@ mod a295_s3;
 mod a32;
 mod a480;
 mod a480_s2;
+mod a535;
 mod a7;
 mod a9;
 mod a9_s2;
