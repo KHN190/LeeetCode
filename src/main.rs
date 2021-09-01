@@ -3,6 +3,7 @@ mod a13;
 mod a133;
 mod a1805;
 mod a187;
+mod a187_s2;
 mod a20;
 mod a295;
 mod a295_s2;
