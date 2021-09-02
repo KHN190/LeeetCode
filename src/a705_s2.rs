@@ -2,8 +2,6 @@
 
 // we can't create array of Vec more than 32 size,
 // so we create Vec of Vec.
-//
-// https://stackoverflow.com/questions/27393166/how-do-i-initialize-an-array-of-vectors
 #[allow(dead_code)]
 struct MyHashSet {
     data: Vec<Vec<i32>>, // 997 size: 10^6 ~= 997^2
