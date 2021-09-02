@@ -32,7 +32,6 @@ impl MyHashSet {
         let h = self.hash(key) as usize;
         let i = self.data[h].iter().position(|&x| x == key);
         if i != None {
-            println!("remove row {} at {}", h, i.unwrap());
             self.data[h].remove(i.unwrap());
         }
     }
