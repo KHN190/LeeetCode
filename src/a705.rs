@@ -7,32 +7,27 @@
 
 #[allow(dead_code)]
 struct MyHashSet {
-    set: Vec<u8>,
+    set: [bool; 1000001],
 }
 
 #[allow(dead_code)]
 impl MyHashSet {
     fn new() -> Self {
-        let mut data = Vec::with_capacity(100001 as usize);
-        for _ in 0..100001 {
-            data.push(0);
+        MyHashSet {
+            set: [false; 1000001],
         }
-        MyHashSet { set: data }
     }
 
     fn add(&mut self, key: i32) {
-        self.set[key as usize] = 1;
+        self.set[key as usize] = true;
     }
 
     fn remove(&mut self, key: i32) {
-        self.set[key as usize] = 0;
+        self.set[key as usize] = false;
     }
 
     fn contains(&self, key: i32) -> bool {
-        if self.set[key as usize] == 1 {
-            return true;
-        }
-        return false;
+        self.set[key as usize]
     }
 }
 
