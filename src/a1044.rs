@@ -10,19 +10,6 @@
 // 2 <= s.length <= 3 * 10^4
 // s consists of lowercase English letters.
 
-// Thoughts:
-//  HashSet + largest cur length
-//  if length > cur largest, update the HashSet
-//  a set of found (and are the longest)
-//
-//  the problem is how to scan only once (ideally)
-//  for fixed sliding window, you only need to scan once [LC480]
-//  but there, the window is not fixed.
-//
-//  so scan from len(s)-1! then len(s)-2, len(s)-3, ..
-//  each pass is a sliding window scan!
-//  if dup is found, then return!
-
 pub fn longest_dup_substring(s: String) -> String {
     use std::collections::HashSet;
 
