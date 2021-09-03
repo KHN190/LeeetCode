@@ -7,7 +7,6 @@
 
 // 1 <= s.length <= 10^5
 
-#[allow(dead_code)]
 pub fn find_repeated_dna_sequences(s: String) -> Vec<String> {
     use std::collections::HashSet;
 

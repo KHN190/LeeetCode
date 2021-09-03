@@ -1,6 +1,5 @@
 // bit-set solution to save memory
 
-#[allow(dead_code)]
 pub fn find_repeated_dna_sequences(s: String) -> Vec<String> {
     use std::collections::HashSet;
 

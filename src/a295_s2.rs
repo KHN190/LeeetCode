@@ -3,22 +3,20 @@
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
-#[allow(dead_code)]
-struct MedianFinder {
+pub struct MedianFinder {
     low: BinaryHeap<i32>,
     high: BinaryHeap<Reverse<i32>>,
 }
 
-#[allow(dead_code)]
 impl MedianFinder {
-    fn new() -> Self {
+    pub fn new() -> Self {
         Self {
             low: BinaryHeap::with_capacity(25000),
             high: BinaryHeap::with_capacity(25000),
         }
     }
 
-    fn add_num(&mut self, num: i32) {
+    pub fn add_num(&mut self, num: i32) {
         match (self.low.peek(), self.high.peek()) {
             (None, Some(_)) => self.high.push(Reverse(num)),
             (None, None) => self.low.push(num),
@@ -42,7 +40,7 @@ impl MedianFinder {
         }
     }
 
-    fn find_median(&self) -> f64 {
+    pub fn find_median(&self) -> f64 {
         let lh = self.low.len();
         let rh = self.high.len();
 

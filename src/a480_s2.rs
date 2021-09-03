@@ -2,7 +2,6 @@
 
 // Binary Search + Vector solution
 
-#[allow(dead_code)]
 pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
     let mut window = Vec::<i32>::new();
 

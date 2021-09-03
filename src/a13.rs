@@ -6,7 +6,6 @@
 
 // 這實際上是一道 parser 相關的題。
 
-#[allow(dead_code)]
 pub fn roman_to_int(s: String) -> i32 {
     use std::collections::HashMap;
     // static dict from Roman to int

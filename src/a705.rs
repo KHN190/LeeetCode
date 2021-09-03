@@ -5,28 +5,26 @@
 // 0 <= key <= 10^6
 // At most 10^4 calls will be made to add, remove, and contains.
 
-#[allow(dead_code)]
-struct MyHashSet {
+pub struct MyHashSet {
     set: [bool; 1000001],
 }
 
-#[allow(dead_code)]
 impl MyHashSet {
-    fn new() -> Self {
+    pub fn new() -> Self {
         MyHashSet {
             set: [false; 1000001],
         }
     }
 
-    fn add(&mut self, key: i32) {
+    pub fn add(&mut self, key: i32) {
         self.set[key as usize] = true;
     }
 
-    fn remove(&mut self, key: i32) {
+    pub fn remove(&mut self, key: i32) {
         self.set[key as usize] = false;
     }
 
-    fn contains(&self, key: i32) -> bool {
+    pub fn contains(&self, key: i32) -> bool {
         self.set[key as usize]
     }
 }

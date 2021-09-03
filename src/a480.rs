@@ -35,7 +35,6 @@ fn run() {
     assert_eq!(median_sliding_window(nums.clone(), 2), vec!(2147483647.0));
 }
 
-#[allow(dead_code)]
 pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
     let mut lhs = BinaryHeap::<i32>::new();
     let mut rhs = BinaryHeap::<Reverse<i32>>::new();

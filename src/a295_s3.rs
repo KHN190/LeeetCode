@@ -2,12 +2,11 @@
 
 // FollowUp: run-length compress
 
-pub(crate) struct MedianFinder {
+pub struct MedianFinder {
     nums: Vec<i32>,
     freq: Vec<usize>,
 }
 
-#[allow(dead_code)]
 impl MedianFinder {
     pub fn new() -> Self {
         Self {
@@ -16,7 +15,7 @@ impl MedianFinder {
         }
     }
 
-    fn len(&self) -> usize {
+    pub fn len(&self) -> usize {
         self.nums.len()
     }
 

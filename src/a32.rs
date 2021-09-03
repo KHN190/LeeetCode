@@ -26,7 +26,6 @@ def longestValidParentheses(self, s):
 // res[i] is number of valid parentheses matches
 // res[i] = res[i-1] + 2 + res[i - (res[i-1] + 2)] if s[i] = ')' and '(' count > 0
 
-#[allow(dead_code)]
 pub fn longest_valid_parentheses(s: String) -> i32 {
     let mut res: Vec<i32> = vec![0; s.len()];
     let mut open: i32 = 0;

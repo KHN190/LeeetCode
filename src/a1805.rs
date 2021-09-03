@@ -24,7 +24,6 @@ fn run() {
     );
 }
 
-#[allow(dead_code)]
 pub fn num_different_integers(word: String) -> i32 {
     use std::collections::HashSet;
     use std::iter::FromIterator;

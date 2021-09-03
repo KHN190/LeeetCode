@@ -14,9 +14,8 @@ use std::{
     hash::{Hash, Hasher},
 };
 
-#[allow(dead_code)]
 #[derive(Default)]
-struct Codec {
+pub struct Codec {
     dict: HashMap<String, String>,
 }
 

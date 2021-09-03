@@ -1,10 +1,9 @@
 // https://leetcode.com/problems/find-median-from-data-stream/
 
-pub(crate) struct MedianFinder {
+pub struct MedianFinder {
     window: Vec<i32>,
 }
 
-#[allow(dead_code)]
 impl MedianFinder {
     pub fn new() -> Self {
         Self {
