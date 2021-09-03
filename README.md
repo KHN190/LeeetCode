@@ -22,3 +22,9 @@ Google's interview covers 50% medium, 50% hard. The "hard" problems are not gene
 For practicing, optimal solutions should always be studied. Since in real interview, only 1~2 will be allowed not to be optimal among five rounds of code test.
 
 Also learn to explain your thoughts to people.
+
+## Progress
+
+8 months, ~200 problems, that's 6.25 problems per week.
+
+* 14 problems solved. Sep 3, 2021. (7%)
