@@ -17,6 +17,8 @@ pub mod a535;
 pub mod a7;
 pub mod a705;
 pub mod a705_s2;
+pub mod a72;
+pub mod a72_s2;
 pub mod a9;
 pub mod a9_s2;
 pub mod a9_s3;
