@@ -27,6 +27,7 @@ def longestValidParentheses(self, s):
 // res[i] = res[i-1] + 2 + res[i - (res[i-1] + 2)] if s[i] = ')' and '(' count > 0
 
 pub fn longest_valid_parentheses(s: String) -> i32 {
+    // current max match at i
     let mut res: Vec<usize> = vec![0; s.len()];
     let mut open: i32 = 0;
     let mut max: i32 = 0;
@@ -58,4 +59,5 @@ fn run() {
     assert_eq!(longest_valid_parentheses(")()())".into()), 4);
     assert_eq!(longest_valid_parentheses("".into()), 0);
     assert_eq!(longest_valid_parentheses("()(()".into()), 2);
+    assert_eq!(longest_valid_parentheses("()(())".into()), 6);
 }
