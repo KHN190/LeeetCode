@@ -10,6 +10,8 @@
 // 2 <= s.length <= 3 * 10^4
 // s consists of lowercase English letters.
 
+// @todo Rabin Karp optimization
+
 pub fn longest_dup_substring(s: String) -> String {
     use std::collections::HashSet;
 
