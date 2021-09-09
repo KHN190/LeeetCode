@@ -13,6 +13,7 @@ pub mod a295_s3;
 pub mod a32;
 pub mod a480;
 pub mod a480_s2;
+pub mod a5;
 pub mod a53;
 pub mod a535;
 pub mod a7;
