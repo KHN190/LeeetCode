@@ -39,8 +39,8 @@ pub fn merge_two_lists(
                 *cur = c1;
                 break;
             } else {
-                let v1 = get_val(&c1);
-                let v2 = get_val(&c2);
+                let v1 = c1.as_ref().unwrap().val;
+                let v2 = c2.as_ref().unwrap().val;
                 *cur = Some(Box::new(ListNode::new(v1.min(v2))));
                 cur = &mut cur.as_mut().unwrap().next;
 
@@ -53,9 +53,4 @@ pub fn merge_two_lists(
         }
     }
     res.next
-}
-
-// assume it is not none
-fn get_val(l: &Option<Box<ListNode>>) -> i32 {
-    l.as_ref().unwrap().as_ref().val
 }
