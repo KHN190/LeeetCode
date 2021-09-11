@@ -5,6 +5,7 @@ pub mod a133;
 pub mod a1805;
 pub mod a187;
 pub mod a187_s2;
+pub mod a2;
 pub mod a20;
 pub mod a21;
 pub mod a239;
