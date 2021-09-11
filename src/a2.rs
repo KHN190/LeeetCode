@@ -40,36 +40,25 @@ pub fn add_two_numbers(
             if c1.is_none() && c2.is_none() {
                 break;
             }
-            // current values
-            let v1 = if !c1.is_none() {
-                c1.as_ref().unwrap().val
-            } else {
-                0
-            };
-            let v2 = if !c2.is_none() {
-                c2.as_ref().unwrap().val
-            } else {
-                0
-            };
-            // calc digit and carry
-            let mut val = v1 + v2 + carry;
-            if val >= 10 {
-                val -= 10;
-                carry = 1;
-            } else {
-                carry = 0;
-            }
-            // digit to result
-            *cur = Some(Box::new(ListNode::new(val)));
-            cur = &mut cur.as_mut().unwrap().next;
+            // get current values and advance lists
+            let mut v1 = 0;
+            let mut v2 = 0;
 
-            // advance lists
             if !c1.is_none() {
+                v1 = c1.as_ref().unwrap().val;
                 c1 = c1.unwrap().next;
             }
             if !c2.is_none() {
+                v2 = c2.as_ref().unwrap().val;
                 c2 = c2.unwrap().next;
             }
+            // calc digit and carry
+            let mut val = v1 + v2 + carry;
+            carry = val / 10;
+            val = val % 10;
+            // digit to result
+            *cur = Some(Box::new(ListNode::new(val)));
+            cur = &mut cur.as_mut().unwrap().next;
         }
         if carry != 0 {
             *cur = Some(Box::new(ListNode::new(carry)));
