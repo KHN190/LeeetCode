@@ -27,3 +27,4 @@ Also learn to explain your thoughts to people.
 8 months, ~200 problems, that's 6.25 problems per week.
 
 * 14 problems solved. Sep 3, 2021. (7%)
+* 21 problems solved. Sep 11, 2021. (10.5%)
