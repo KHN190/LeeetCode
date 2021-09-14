@@ -8,6 +8,24 @@
 // -10^9 <= target <= 10^9
 // Only one valid answer exists.
 
+pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    use std::collections::HashMap;
+
+    let mut prev_nums = HashMap::<i32, usize>::new();
+    // for each element in nums, if we can't find the other number, then
+    // put this into the map, and iterate the next.
+    // if we found the wanted other number, then return the pairs.
+    for (i, n) in nums.iter().enumerate() {
+        let remain: i32 = target - n;
+        if prev_nums.contains_key(&remain) {
+            return vec![prev_nums[&remain] as i32, i as i32];
+        }
+        prev_nums.insert(*n, i);
+    }
+
+    unreachable!("it should never reach here!");
+}
+
 #[test]
 fn run() {
     let mut nums = vec![2, 7, 11, 15];
@@ -31,22 +49,4 @@ fn vec_eq(v1: Vec<i32>, v2: Vec<i32>) -> bool {
         }
     }
     true
-}
-
-pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-    use std::collections::HashMap;
-
-    let mut prev_nums = HashMap::<i32, usize>::new();
-    // for each element in nums, if we can't find the other number, then
-    // put this into the map, and iterate the next.
-    // if we found the wanted other number, then return the pairs.
-    for (i, n) in nums.iter().enumerate() {
-        let remain: i32 = target - n;
-        if prev_nums.contains_key(&remain) {
-            return vec![prev_nums[&remain] as i32, i as i32];
-        }
-        prev_nums.insert(*n, i);
-    }
-
-    unreachable!("it should never reach here!");
 }
