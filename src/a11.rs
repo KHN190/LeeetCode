@@ -24,7 +24,9 @@ pub fn max_area(height: Vec<i32>) -> i32 {
     let mut max: i32 = 0;
 
     loop {
-        if i >= j { break; }
+        if i >= j {
+            break;
+        }
 
         let a1 = height[i];
         let a2 = height[j];
@@ -33,27 +35,28 @@ pub fn max_area(height: Vec<i32>) -> i32 {
         if a1 < a2 {
             v = (j - i) as i32 * a1;
             i += 1;
-
         } else {
             v = (j - i) as i32 * a2;
             j -= 1;
         }
-        if v > max { max = v; }
+        if v > max {
+            max = v;
+        }
     }
     max
 }
 
 #[test]
 fn run() {
-    let v = vec![4,3,2,1,4];
+    let v = vec![4, 3, 2, 1, 4];
     assert_eq!(max_area(v), 16);
 
-    let v = vec![1,1];
+    let v = vec![1, 1];
     assert_eq!(max_area(v), 1);
 
-    let v = vec![1,8,6,2,5,4,8,3,7];
+    let v = vec![1, 8, 6, 2, 5, 4, 8, 3, 7];
     assert_eq!(max_area(v), 49);
 
-    let v = vec![1,2,1];
+    let v = vec![1, 2, 1];
     assert_eq!(max_area(v), 2);
 }

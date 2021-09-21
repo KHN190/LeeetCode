@@ -44,7 +44,7 @@ fn expand(s: &[u8], i: usize, j: usize) -> (usize, usize) {
     while rhs < s.len() && s[lhs] == s[rhs] {
         l = lhs;
         r = rhs;
-        if lhs == 0  {
+        if lhs == 0 {
             break;
         }
         lhs -= 1;
