@@ -33,16 +33,18 @@ pub fn longest_palindrome(s: String) -> String {
     s[lhs..=rhs].into()
 }
 
+// find the longest ends for palindrome substr
+// which starts from i, j
 fn expand(s: &[u8], i: usize, j: usize) -> (usize, usize) {
     let mut lhs: usize = i;
     let mut rhs: usize = j;
     let mut l: usize = 0;
     let mut r: usize = 0;
 
-    while rhs < s.len() && s[lhs] == s[rhs] {
+    while s[lhs] == s[rhs] {
         l = lhs;
         r = rhs;
-        if lhs == 0 {
+        if lhs == 0 || rhs == s.len() - 1 {
             break;
         }
         lhs -= 1;
