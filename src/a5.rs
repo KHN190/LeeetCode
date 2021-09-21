@@ -41,10 +41,10 @@ fn expand(s: &[u8], i: usize, j: usize) -> (usize, usize) {
     let mut l: usize = 0;
     let mut r: usize = 0;
 
-    while s[lhs] == s[rhs] {
+    while rhs < s.len() && s[lhs] == s[rhs] {
         l = lhs;
         r = rhs;
-        if lhs == 0 || rhs == s.len() - 1 {
+        if lhs == 0  {
             break;
         }
         lhs -= 1;
