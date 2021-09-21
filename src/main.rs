@@ -11,6 +11,7 @@ pub mod a187_s2;
 pub mod a2;
 pub mod a20;
 pub mod a21;
+pub mod a22;
 pub mod a239;
 pub mod a295;
 pub mod a295_s2;
