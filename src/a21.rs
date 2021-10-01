@@ -4,18 +4,7 @@
 // The list should be made by splicing together the nodes of
 // the first two lists.
 
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
+use crate::types::ListNode;
 
 pub fn merge_two_lists(
     l1: Option<Box<ListNode>>,
@@ -53,4 +42,11 @@ pub fn merge_two_lists(
         }
     }
     res.next
+}
+
+#[test]
+fn run() {
+    let v1 = vec![1, 2, 3];
+    let l1 = ListNode::from_vec(v1.clone()).unwrap();
+    assert_eq!(v1, l1.to_vec());
 }
