@@ -15,7 +15,9 @@ pub mod a2;
 pub mod a20;
 pub mod a21;
 pub mod a22;
+pub mod a23;
 pub mod a239;
+pub mod a23_s2;
 pub mod a295;
 pub mod a295_s2;
 pub mod a295_s3;
@@ -28,6 +30,7 @@ pub mod a5;
 pub mod a53;
 pub mod a535;
 pub mod a55;
+pub mod a621;
 pub mod a7;
 pub mod a705;
 pub mod a705_s2;
@@ -39,6 +42,7 @@ pub mod a9;
 pub mod a98;
 pub mod a9_s2;
 pub mod a9_s3;
+mod types;
 
 #[global_allocator]
 static ALLOC: jemallocator::Jemalloc = jemallocator::Jemalloc;
