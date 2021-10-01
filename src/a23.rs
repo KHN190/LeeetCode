@@ -7,6 +7,11 @@ use crate::types::ListNode;
 pub fn merge_k_lists(lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
     let mut res = ListNode::new(0);
     {
+        // @todo divide and conquer
+        //   merge 1,2; 3,4; 5,6..
+        //
+        //   the optimized will be O(log(k))
+        //
         for mut node in lists {
             let l1 = node.take();
             let l2 = res.next;
