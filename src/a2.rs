@@ -9,18 +9,7 @@
 // You may assume the two numbers do not contain any leading zero,
 // except the number 0 itself.
 
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
+use crate::types::ListNode;
 
 pub fn add_two_numbers(
     l1: Option<Box<ListNode>>,
