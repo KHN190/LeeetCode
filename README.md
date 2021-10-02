@@ -13,6 +13,7 @@ python3 run_all.py
 ## Todo
 
 * regex matching implementation
+* LC261 cpu cycle
 
 ## Notes to myself
 
