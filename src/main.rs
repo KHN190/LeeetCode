@@ -24,6 +24,8 @@ pub mod a295;
 pub mod a295_s2;
 pub mod a295_s3;
 pub mod a32;
+pub mod a347;
+pub mod a347_s2;
 pub mod a4;
 pub mod a45;
 pub mod a480;
