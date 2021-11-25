@@ -39,6 +39,7 @@ pub mod a621;
 pub mod a62_s2;
 pub mod a64;
 pub mod a7;
+pub mod a70;
 pub mod a705;
 pub mod a705_s2;
 pub mod a72;
