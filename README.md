@@ -12,9 +12,6 @@ python3 run_all.py
 
 ## Todo
 
-* LC10 - regex matching implementation
-* LC261 - cpu cycle
-
 And prep for [system designs](https://github.com/yangshun/tech-interview-handbook/tree/master/experimental/design).
 
 ## Notes to myself
