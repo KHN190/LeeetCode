@@ -17,4 +17,14 @@ impl TreeNode {
             right: None,
         }
     }
+
+    pub fn set_lhs(&mut self, val: i32) -> &mut Self {
+        self.left = Some(Rc::new(RefCell::new(TreeNode::new(val))));
+        self
+    }
+
+    pub fn set_rhs(&mut self, val: i32) -> &mut Self {
+        self.right = Some(Rc::new(RefCell::new(TreeNode::new(val))));
+        self
+    }
 }
