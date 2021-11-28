@@ -31,6 +31,7 @@ pub mod a32;
 pub mod a347;
 pub mod a347_s2;
 pub mod a4;
+pub mod a42;
 pub mod a45;
 pub mod a480;
 pub mod a480_s2;
