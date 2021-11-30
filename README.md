@@ -23,6 +23,7 @@ Optimal solutions should always be studied. Since looks that in interview, only 
 ## Progress
 
 8 months, ~200 problems, that's 6.25 problems per week.
-* 14 problems. Sep 3, 2021. (7%)
-* 21 problems. Sep 11, 2021. (10.5%)
-* 28 problems. Sep 21, 2021. (14%)
+* 14. Sep 3, 2021. (7%)
+* 21. Sep 11, 2021. (10.5%)
+* 28. Sep 21, 2021. (14%)
+* 47. Nov 29, 2021. (23.5%)
