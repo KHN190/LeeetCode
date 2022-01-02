@@ -46,9 +46,9 @@ pub fn search(nums: Vec<i32>, target: i32) -> i32 {
 
 #[test]
 fn run() {
-    let nums: Vec<i32> = vec![4,5,6,7,0,1,2];
+    let nums: Vec<i32> = vec![4, 5, 6, 7, 0, 1, 2];
     assert_eq!(search(nums, 0), 4);
 
-    let nums = vec![4,5,6,7,0,1,2];
+    let nums = vec![4, 5, 6, 7, 0, 1, 2];
     assert_eq!(search(nums, 3), -1);
 }
