@@ -51,8 +51,14 @@ pub fn top_k_frequent(nums: Vec<i32>, k: i32) -> Vec<i32> {
 #[test]
 fn run() {
     let nums = vec![1, 0, 1, 1, 1, 2, 2, 2, 3, 3];
-    assert_eq!(top_k_frequent(nums, 2), vec![1, 2]);
+    let mut res = top_k_frequent(nums, 2);
+    res.sort();
+
+    assert_eq!(res, vec![1, 2]);
 
     let nums = vec![1, 1, 1, 2, 2, 3];
-    assert_eq!(top_k_frequent(nums, 2), vec![1, 2]);
+    let mut res = top_k_frequent(nums, 2);
+    res.sort();
+
+    assert_eq!(res, vec![1, 2]);
 }
