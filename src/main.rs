@@ -10,6 +10,7 @@ pub mod a133;
 pub mod a139;
 pub mod a139_s2;
 pub mod a139_s3;
+pub mod a140;
 pub mod a15;
 pub mod a152;
 pub mod a17;
