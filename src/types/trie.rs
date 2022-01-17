@@ -3,8 +3,8 @@
 
 #[derive(Default)]
 pub struct Trie {
-    is_end: bool,                   // is this node an end of a word?
-    nodes: [Option<Box<Trie>>; 26], // 26 alphabets
+    pub is_end: bool,
+    pub nodes: [Option<Box<Trie>>; 26], // 26 chars
 }
 
 #[allow(dead_code)]

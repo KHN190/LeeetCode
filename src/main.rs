@@ -23,6 +23,7 @@ pub mod a2;
 pub mod a20;
 pub mod a208;
 pub mod a21;
+pub mod a211;
 pub mod a212;
 pub mod a212_s2;
 pub mod a22;
