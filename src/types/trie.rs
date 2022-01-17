@@ -13,7 +13,7 @@ impl Trie {
         Default::default()
     }
 
-    pub fn insert(&mut self, word: String) {
+    pub fn insert(&mut self, word: &String) {
         let mut curr = self;
         for i in word.chars().map(|c| (c as u8 - 'a' as u8) as usize) {
             curr = curr.nodes[i].get_or_insert_with(|| Box::new(Trie::new()));
@@ -22,7 +22,7 @@ impl Trie {
     }
 
     // true if word is in the trie
-    pub fn search(&self, word: String) -> bool {
+    pub fn search(&self, word: &String) -> bool {
         // current pos in node
         let mut curr = self;
         for i in word.chars().map(|c| (c as u8 - 'a' as u8) as usize) {
@@ -39,7 +39,7 @@ impl Trie {
     }
 
     // true if prefix is in the trie
-    pub fn starts_with(&self, prefix: String) -> bool {
+    pub fn starts_with(&self, prefix: &String) -> bool {
         let mut curr = self;
         for i in prefix.chars().map(|char| (char as u8 - 'a' as u8) as usize) {
             match curr.nodes[i].as_ref() {

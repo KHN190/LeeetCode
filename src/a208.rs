@@ -13,14 +13,14 @@ fn run() {
     use crate::types::Trie;
 
     let mut trie = Trie::new();
-    trie.insert("world".into());
-    trie.insert("walden".into());
+    trie.insert(&"world".into());
+    trie.insert(&"walden".into());
 
-    assert_eq!(trie.search("world".into()), true);
-    assert_eq!(trie.search("word".into()), false);
-    assert_eq!(trie.search("walden".into()), true);
+    assert_eq!(trie.search(&"world".into()), true);
+    assert_eq!(trie.search(&"word".into()), false);
+    assert_eq!(trie.search(&"walden".into()), true);
 
-    assert_eq!(trie.starts_with("world".into()), true);
-    assert_eq!(trie.starts_with("wal".into()), true);
-    assert_eq!(trie.starts_with("wore".into()), false);
+    assert_eq!(trie.starts_with(&"world".into()), true);
+    assert_eq!(trie.starts_with(&"wal".into()), true);
+    assert_eq!(trie.starts_with(&"wore".into()), false);
 }

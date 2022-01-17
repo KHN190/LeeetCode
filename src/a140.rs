@@ -23,7 +23,7 @@ use crate::types::Trie;
 pub fn word_break(s: String, word_dict: Vec<String>) -> Vec<String> {
     let mut trie = Trie::new();
     for w in word_dict.iter() {
-        trie.insert(w.clone());
+        trie.insert(&w);
     }
 
     let mut res: Vec<String> = vec![];
