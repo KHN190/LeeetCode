@@ -25,7 +25,7 @@ for x in os.listdir('src'):
 print("Generating {} solutions, {} unique.".format(len(fs), len(uniq_fs)))
 
 # write mods
-header = "mod types;"
+header = "mod types;\nmod knife;"
 header += '\n'.join(['pub mod ' + x + ';' for x in fs])
 
 with open('src/main.rs', 'w+') as f:
