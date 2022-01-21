@@ -38,8 +38,6 @@ fn validate(win_size: usize, a: &Vec<i32>, b: &Vec<i32>) -> bool {
     }
     let ha: Vec<i32> = rolling_hash(a, win_size);
     let hb: Vec<i32> = rolling_hash(b, win_size);
-    // println!("ha: {:?}", &ha);
-    // println!("hb: {:?}", &hb);
 
     // we didn't actually do trivial check
     // but for sake, we need
