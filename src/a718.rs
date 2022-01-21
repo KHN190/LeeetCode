@@ -13,6 +13,7 @@ pub fn find_length(nums1: Vec<i32>, nums2: Vec<i32>) -> i32 {
     let mut dp: Vec<Vec<i32>> = vec![vec![0; m + 1]; n + 1];
     let mut res = 0;
 
+    // see #1143 for difference
     for i in 1..=n {
         for j in 1..=m {
             // if curr int match, it is dp[i - 1][j - 1] + 1
