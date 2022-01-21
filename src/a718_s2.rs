@@ -7,17 +7,12 @@
 
 // @todo review this question and understand it
 
-// const MOD: i32 = 1e6 as i32 + 3;
-// const BASE: i32 = 101;
-const MOD: i32 = 1001;
-const BASE: i32 = 7;
+const MOD: u128 = 1001;
+const BASE: u128 = 2;
 
 pub fn find_length(a: Vec<i32>, b: Vec<i32>) -> i32 {
     let mut res = 0;
     let (mut lhs, mut rhs) = (0, a.len().min(b.len()));
-
-    let win_size = lhs + (rhs - lhs) / 2;
-    println!("{}", BASE.pow(win_size as u32 - 1));
 
     // binary search with rolling hash
     while lhs <= rhs {
@@ -39,14 +34,22 @@ fn validate(win_size: usize, a: &Vec<i32>, b: &Vec<i32>) -> bool {
     let ha: Vec<i32> = rolling_hash(a, win_size);
     let hb: Vec<i32> = rolling_hash(b, win_size);
 
-    // we didn't actually do trivial check
-    // but for sake, we need
-    for hashie in ha {
+    // do trivial check in case of hash collision
+    // hashie = hash(i..win_size + i)
+    for (i, hashie) in ha.iter().enumerate() {
         if hb.contains(&hashie) {
-            return true;
+            let j = hb.iter().position(|e| e == hashie).unwrap();
+            if trivial_check(a, b, i, j, win_size) {
+                return true;
+            }
         }
     }
     false
+}
+
+// check char match from (i..win_size + i)
+fn trivial_check(a: &Vec<i32>, b: &Vec<i32>, i: usize, j: usize, win_size: usize) -> bool {
+    a[i..i + win_size] == b[j..j + win_size]
 }
 
 // calcualte all hashies for 0..win_size
@@ -56,20 +59,23 @@ fn rolling_hash(nums: &Vec<i32>, win_size: usize) -> Vec<i32> {
     // when i < win_size, rolling hash is calculated by simply
     // appending data[i] to the end.
     for i in 0..win_size {
-        hashie = (hashie * BASE + nums[i]) % MOD;
+        hashie = (hashie * BASE + nums[i] as u128) % MOD;
     }
-    res.push(hashie);
+    res.push(hashie as i32);
     // when we keep win_size, we deduct the head hash data[i - win_size],
     // then append data[i] to the end.
+    let (pow, _) = BASE.overflowing_pow(win_size as u32 - 1);
+
     for i in win_size..nums.len() {
-        // @warn we have overflow by power
-        hashie -= nums[i - win_size] * BASE.pow(win_size as u32 - 1) % MOD;
-        hashie = (hashie * BASE + nums[i]) % MOD;
-        // for sanity
-        if hashie < 0 {
+        // @warn keep base small so we don't have overflow by power
+        let last_hashie = nums[i - win_size] as u128 * pow % MOD;
+        // for sanity, hashie must >= 0 after minus
+        if last_hashie > hashie {
             hashie += MOD;
         }
-        res.push(hashie);
+        hashie -= last_hashie;
+        hashie = (hashie * BASE + nums[i] as u128) % MOD;
+        res.push(hashie as i32);
     }
     // we have rolling hash from 0..nums.len()
     res
@@ -81,18 +87,25 @@ fn run() {
     let n2: Vec<i32> = vec![1, 1, 0, 1, 1, 0, 0, 0, 0, 0];
     assert_eq!(find_length(n1, n2), 6);
 
-    // this should work, but we have overflow
-    // let n1: Vec<i32> = vec![
-    //     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    //     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    //     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    //     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    // ];
-    // let n2: Vec<i32> = vec![
-    //     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    //     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    //     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    //     0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-    // ];
-    // assert_eq!(find_length(n1, n2), 59);
+    let n1: Vec<i32> = vec![
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    ];
+    let n2: Vec<i32> = vec![
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+    ];
+    assert_eq!(find_length(n1, n2), 59);
+
+    let n1: Vec<i32> = vec![69, 51, 94, 52, 72, 74, 65, 65, 99, 1];
+    let n2: Vec<i32> = vec![65, 99, 82, 27, 43, 95, 9, 20, 13, 99];
+    assert_eq!(find_length(n1, n2), 2);
+
+    let n1: Vec<i32> = vec![70, 39, 25, 40, 7];
+    let n2: Vec<i32> = vec![52, 20, 67, 5, 31];
+    assert_eq!(find_length(n1, n2), 0);
 }
