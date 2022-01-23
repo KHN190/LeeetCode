@@ -23,8 +23,8 @@ Optimal solutions should always be studied. Since looks that in interview, only 
 ## Progress
 
 Before Feb 2022, ~200 problems,
-* 14, Sep 03, 2021. ▓░░░░░░░░░
-* 21, Sep 11, 2021. █░░░░░░░░░
-* 28, Sep 21, 2021. █▒░░░░░░░░
-* 47, Nov 29, 2021. ██▒░░░░░░░
-* 70, Jan 23, 2022. ███▒░░░░░░
+* `14, Sep 03, 2021. ▓░░░░░░░░░`
+* `21, Sep 11, 2021. █░░░░░░░░░`
+* `28, Sep 21, 2021. █▒░░░░░░░░`
+* `47, Nov 29, 2021. ██▒░░░░░░░`
+* `70, Jan 23, 2022. ███▒░░░░░░`
