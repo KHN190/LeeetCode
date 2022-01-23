@@ -41,5 +41,5 @@ pub fn delete_and_earn(nums: Vec<i32>) -> i32 {
 fn run() {
     assert_eq!(delete_and_earn(vec![3, 4, 2]), 6);
     assert_eq!(delete_and_earn(vec![2, 2, 3, 3, 3, 4]), 9);
-    assert_eq!(delete_and_earn(vec![4, 4, 2, 2]), 8);
+    assert_eq!(delete_and_earn(vec![4, 4, 2, 2]), 12);
 }
