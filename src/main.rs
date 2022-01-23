@@ -59,6 +59,7 @@ pub mod a480;
 pub mod a480_s2;
 pub mod a49;
 pub mod a5;
+pub mod a509;
 pub mod a53;
 pub mod a535;
 pub mod a55;
