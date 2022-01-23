@@ -3,6 +3,7 @@ pub mod a10;
 pub mod a1044;
 pub mod a1044_s2;
 pub mod a11;
+pub mod a1137;
 pub mod a1143;
 pub mod a121;
 pub mod a124;
