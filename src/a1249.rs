@@ -23,7 +23,7 @@ pub fn min_remove_to_make_valid(s: String) -> String {
     while !stack.is_empty() {
         skip_idx.push(stack.pop().unwrap());
     }
-    println!("del parenth: {:?}", skip_idx.len());
+    // println!("del parenth: {:?}", skip_idx.len());
 
     s.char_indices()
         .filter_map(|(i, c)| if skip_idx.contains(&i) { None } else { Some(c) })
@@ -37,6 +37,4 @@ fn run() {
 
     let s = min_remove_to_make_valid("a)b(c)d".into());
     assert_eq!(&s, &"ab(c)d");
-
-    assert!(false);
 }
