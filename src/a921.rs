@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/
 
-// follow up: delete parenth to make balance.
+// follow up: delete parenth to make balance. (LC1249)
 
 pub fn min_add_to_make_valid(s: String) -> i32 {
     let mut not_closed = 0;
