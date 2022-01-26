@@ -56,15 +56,10 @@ fn run() {
     let mut obj = RandomizedSet::new();
 
     let r1 = obj.insert(0);
-    println!("{:?}", &obj.data);
     let r2 = obj.insert(1);
-    println!("{:?}", &obj.data);
     let r3 = obj.remove(0);
-    println!("{:?}", &obj.data);
     let r4 = obj.insert(2);
-    println!("{:?}", &obj.data);
     let r5 = obj.remove(1);
-    println!("{:?}", &obj.data);
 
     assert_eq!(r1, true);
     assert_eq!(r2, true);
