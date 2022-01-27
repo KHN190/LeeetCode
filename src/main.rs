@@ -87,6 +87,7 @@ pub mod a746;
 pub mod a75;
 pub mod a78;
 pub mod a79;
+pub mod a791;
 pub mod a85;
 pub mod a9;
 pub mod a921;
