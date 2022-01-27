@@ -59,6 +59,7 @@ pub mod a35;
 pub mod a380;
 pub mod a39;
 pub mod a394;
+pub mod a399;
 pub mod a4;
 pub mod a42;
 pub mod a45;
