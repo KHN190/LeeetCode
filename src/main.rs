@@ -73,6 +73,8 @@ pub mod a5;
 pub mod a509;
 pub mod a53;
 pub mod a535;
+pub mod a547;
+pub mod a547_s2;
 pub mod a55;
 pub mod a56;
 pub mod a62;
