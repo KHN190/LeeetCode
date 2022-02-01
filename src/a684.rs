@@ -4,8 +4,7 @@
 // detect cycle
 
 // 1. DFS
-// 2. Union Find
-// 3. Disjoint Set
+// 2. Union Find / Disjoint Set
 
 #[derive(Default)]
 pub struct UnionFind {
@@ -18,11 +17,13 @@ impl UnionFind {
             parent: (0..n).collect(),
         }
     }
+
     fn union(&mut self, x: usize, y: usize) {
         let x = self.find(x);
         let y = self.find(y);
         self.parent[y] = x
     }
+
     fn find(&mut self, x: usize) -> usize {
         if x != self.parent[x] {
             self.parent[x] = self.find(self.parent[x]);
