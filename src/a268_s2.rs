@@ -7,7 +7,7 @@ pub fn missing_number(nums: Vec<i32>) -> bool {
         if i > &n { n = *i; }
         sum += i;
     }
-    nums.len() as i32 * n / 2 > sum
+    (n + 1) * n / 2 != sum
 }
 
 #[test]
