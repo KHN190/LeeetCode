@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 
-// not a BST
+// Not a BST
 //
 // children of a node, where parent is n,
 //  n * 2 + 1, n * 2 + 2
@@ -9,6 +9,10 @@
 //
 // if they are stored in array, it's much easier to
 // calculate the index.
+//
+// Follow up:
+//  No root node is given.
+// https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/
 
 use crate::types::TreeNode;
 
