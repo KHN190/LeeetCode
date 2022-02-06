@@ -7,5 +7,6 @@ mod trie;
 pub use elem::Elem;
 pub use list_node::ListNode;
 pub use monotonic::MonoStack;
+pub use tree_node::TraverseOrder;
 pub use tree_node::TreeNode;
 pub use trie::Trie;

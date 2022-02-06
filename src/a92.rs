@@ -3,12 +3,13 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use crate::types::TreeNode;
+use crate::types::{TraverseOrder, TreeNode};
 
 pub fn inorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-    let mut res = vec![];
-    _traversal(&root, &mut res);
-    res
+    // let mut res = vec![];
+    // _traversal(&root, &mut res);
+    // res
+    root.unwrap().borrow().visit_with(TraverseOrder::Inorder)
 }
 
 fn _traversal(node: &Option<Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {

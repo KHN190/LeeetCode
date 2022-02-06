@@ -42,16 +42,15 @@ impl TreeNode {
     }
 
     pub fn visit(&self) -> Vec<i32> {
-        self.visit_with(None)
+        self.visit_with(TraverseOrder::Preorder)
     }
 
-    pub fn visit_with(&self, order: Option<TraverseOrder>) -> Vec<i32> {
+    pub fn visit_with(&self, order: TraverseOrder) -> Vec<i32> {
         let mut res: Vec<i32> = vec![];
         match order {
-            Some(TraverseOrder::Preorder) => self.preorder(&mut res),
-            Some(TraverseOrder::Inorder) => self.inorder(&mut res),
-            Some(TraverseOrder::Postorder) => self.postorder(&mut res),
-            _ => self.preorder(&mut res),
+            TraverseOrder::Preorder => self.preorder(&mut res),
+            TraverseOrder::Inorder => self.inorder(&mut res),
+            TraverseOrder::Postorder => self.postorder(&mut res),
         }
         return res;
     }
