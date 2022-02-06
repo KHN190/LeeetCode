@@ -28,7 +28,7 @@ impl TreeNode {
     pub fn from_vec(v: &Vec<i32>) -> Self {
         assert!(v.len() > 0);
         let mut root = TreeNode::new(v[0]);
-        root.inorder_insert(v, 0);
+        root._from_vec(v, 0);
         root
     }
 
@@ -61,18 +61,18 @@ impl TreeNode {
         return res;
     }
 
-    fn inorder_insert(self: &mut Self, v: &Vec<i32>, i: usize) {
+    // Insert from level order
+    //
+    fn _from_vec(self: &mut Self, v: &Vec<i32>, i: usize) {
         if 2 * i + 1 < v.len() && self.left.is_none() {
-            // println!("insert lhs: {} to {}", v[2 * i + 1], 2 * i + 1);
             self.set_lhs(v[2 * i + 1]);
             let lhs: &mut TreeNode = &mut self.left.as_ref().unwrap().borrow_mut();
-            lhs.inorder_insert(v, 2 * i + 1);
+            lhs._from_vec(v, 2 * i + 1);
         }
         if 2 * i + 2 < v.len() && self.right.is_none() {
-            // println!("insert rhs: {} to {}", v[2 * i + 2], 2 * i + 2);
             self.set_rhs(v[2 * i + 2]);
             let rhs: &mut TreeNode = &mut self.right.as_ref().unwrap().borrow_mut();
-            rhs.inorder_insert(v, 2 * i + 2);
+            rhs._from_vec(v, 2 * i + 2);
         }
     }
 
