@@ -24,7 +24,8 @@ fn recursive(root: Option<Rc<RefCell<TreeNode>>>, res: &mut Vec<Vec<i32>>, level
 
 #[test]
 fn run() {
-    let t = Some(Rc::new(RefCell::new(TreeNode::from_vec(&vec![1, 2, 3]))));
+    let v = vec![1, 2, 3, 4, 5];
+    let t = Some(Rc::new(RefCell::new(TreeNode::from_vec(&v))));
     let res = level_order(t);
-    assert_eq!(res, vec![vec![1], vec![2, 3]]);
+    assert_eq!(res, vec![vec![1], vec![2, 3], vec![4, 5]]);
 }

@@ -12,6 +12,7 @@ pub enum TraverseOrder {
     Inorder,
     Preorder,
     Postorder,
+    LevelOrder,
 }
 
 impl TreeNode {
@@ -51,64 +52,78 @@ impl TreeNode {
             TraverseOrder::Preorder => self.preorder(&mut res),
             TraverseOrder::Inorder => self.inorder(&mut res),
             TraverseOrder::Postorder => self.postorder(&mut res),
+            TraverseOrder::LevelOrder => {
+                let mut tmp: Vec<Vec<i32>> = vec![];
+                self.levelorder(&mut tmp, 0);
+                res = tmp.into_iter().flatten().collect();
+            }
         }
         return res;
     }
 
-    fn inorder_insert(self: &mut Self, v: &Vec<i32>, i: usize) -> &mut Self {
+    fn inorder_insert(self: &mut Self, v: &Vec<i32>, i: usize) {
         if 2 * i + 1 < v.len() && self.left.is_none() {
             // println!("insert lhs: {} to {}", v[2 * i + 1], 2 * i + 1);
             self.set_lhs(v[2 * i + 1]);
             let lhs: &mut TreeNode = &mut self.left.as_ref().unwrap().borrow_mut();
             lhs.inorder_insert(v, 2 * i + 1);
         }
-        self.val = v[i];
-
         if 2 * i + 2 < v.len() && self.right.is_none() {
             // println!("insert rhs: {} to {}", v[2 * i + 2], 2 * i + 2);
             self.set_rhs(v[2 * i + 2]);
             let rhs: &mut TreeNode = &mut self.right.as_ref().unwrap().borrow_mut();
             rhs.inorder_insert(v, 2 * i + 2);
         }
-        self
     }
 
+    // Traverse by different orders
+    //
     fn preorder(&self, res: &mut Vec<i32>) {
         res.push(self.val);
 
         if self.left.is_some() {
-            let lhs: &TreeNode = &self.left.as_ref().unwrap().borrow();
-            lhs.preorder(res);
+            self.left.as_ref().unwrap().borrow().inorder(res);
         }
         if self.right.is_some() {
-            let rhs: &TreeNode = &self.right.as_ref().unwrap().borrow();
-            rhs.preorder(res);
+            self.right.as_ref().unwrap().borrow().inorder(res);
         }
     }
 
     fn inorder(&self, res: &mut Vec<i32>) {
         if self.left.is_some() {
-            let lhs: &TreeNode = &self.left.as_ref().unwrap().borrow();
-            lhs.inorder(res);
+            self.left.as_ref().unwrap().borrow().inorder(res);
         }
         res.push(self.val);
 
         if self.right.is_some() {
-            let rhs: &TreeNode = &self.right.as_ref().unwrap().borrow();
-            rhs.inorder(res);
+            self.right.as_ref().unwrap().borrow().inorder(res);
         }
     }
 
     fn postorder(&self, res: &mut Vec<i32>) {
         if self.left.is_some() {
-            let lhs: &TreeNode = &self.left.as_ref().unwrap().borrow();
-            lhs.postorder(res);
+            self.left.as_ref().unwrap().borrow().inorder(res);
         }
         if self.right.is_some() {
-            let rhs: &TreeNode = &self.right.as_ref().unwrap().borrow();
-            rhs.postorder(res);
+            self.right.as_ref().unwrap().borrow().inorder(res);
         }
         res.push(self.val);
+    }
+
+    fn levelorder(&self, res: &mut Vec<Vec<i32>>, level: usize) {
+        if res.len() == level {
+            res.push(Vec::new());
+        }
+        res[level].push(self.val);
+
+        if self.left.is_some() {
+            let lhs = self.left.as_ref().unwrap().borrow();
+            lhs.levelorder(res, level + 1);
+        }
+        if self.right.is_some() {
+            let rhs = self.right.as_ref().unwrap().borrow();
+            rhs.levelorder(res, level + 1);
+        }
     }
 }
 
@@ -116,7 +131,9 @@ impl TreeNode {
 fn run() {
     let v = vec![1, 2, 3, 4, 5];
     let t = TreeNode::from_vec(&v);
-    let ns = t.visit();
+    let res1 = t.visit_with(TraverseOrder::Preorder);
+    let res2 = t.visit_with(TraverseOrder::LevelOrder);
 
-    assert_eq!(ns, vec![1, 2, 4, 5, 3]);
+    assert_eq!(res1, vec![1, 4, 2, 5, 3]);
+    assert_eq!(res2, vec![1, 2, 3, 4, 5]);
 }
