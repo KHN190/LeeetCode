@@ -2,6 +2,8 @@
 // https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/discuss/1194315/Rust-recursive-solution
 
 // N + log(N)
+// another approach is using slow and fast header,
+// fast is 2x moving speed of slow, so they have slow & fast as tree's tail.
 
 use std::cell::RefCell;
 use std::rc::Rc;
