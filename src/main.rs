@@ -105,6 +105,7 @@ pub mod a718;
 pub mod a718_s2;
 pub mod a72;
 pub mod a72_s2;
+pub mod a74;
 pub mod a740;
 pub mod a746;
 pub mod a75;
