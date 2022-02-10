@@ -13,10 +13,14 @@ impl UnionFind {
     }
 
     // worst O(N)
-    pub fn union(&mut self, x: usize, y: usize) {
+    pub fn union(&mut self, x: usize, y: usize) -> bool {
         let x = self.find(x);
         let y = self.find(y);
-        self.parent[y] = x
+        if self.parent[y] != x {
+            self.parent[y] = x;
+            return true;
+        }
+        false
     }
 
     // worst O(N)
