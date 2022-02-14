@@ -2,8 +2,7 @@
 
 // return true if nums[i] == nums[j] and abs(i - j) <= k. i != j
 
-use std::collections::HashSet;
-use std::collections::VecDeque;
+use std::collections::{HashSet, VecDeque};
 
 pub fn contains_nearby_duplicate(nums: Vec<i32>, k: i32) -> bool {
     let size = nums.len();
