@@ -24,7 +24,7 @@ pub fn contains_nearby_almost_duplicate(nums: Vec<i32>, k: i32, t: i32) -> bool 
                 }
                 Err(i) => {
                     // diff < t, return true
-                    if close_to(&sorted, i, n, t) || close_to(&sorted, i - 1, n, t) {
+                    if close_to(&sorted, i, n, t) || (i >= 1 && close_to(&sorted, i - 1, n, t)) {
                         return true;
                     }
                 }
@@ -61,11 +61,11 @@ fn close_to(sorted: &Vec<i32>, i: usize, n: &i32, t: i32) -> bool {
 
 #[test]
 fn run() {
-    // let nums = vec![1, 2, 3, 1];
-    // assert!(contains_nearby_almost_duplicate(nums, 3, 0));
-    //
-    // let nums = vec![1, 5, 9, 1, 5, 9];
-    // assert!(!contains_nearby_almost_duplicate(nums, 2, 3));
+    let nums = vec![1, 2, 3, 1];
+    assert!(contains_nearby_almost_duplicate(nums, 3, 0));
+
+    let nums = vec![1, 5, 9, 1, 5, 9];
+    assert!(!contains_nearby_almost_duplicate(nums, 2, 3));
 
     let nums = vec![2147483640, 2147483641];
     assert!(contains_nearby_almost_duplicate(nums, 1, 100));
