@@ -51,9 +51,8 @@ pub fn contains_nearby_almost_duplicate(nums: Vec<i32>, k: i32, t: i32) -> bool 
 fn close_to(sorted: &Vec<i32>, i: usize, n: &i32, t: i32) -> bool {
     if i < sorted.len() {
         // handle overflow
-        let m = sorted[i];
-        let diff = m.max(*n).checked_sub(m.min(*n));
-        if diff.is_some() && diff.unwrap() <= t {
+        let diff = (sorted[i] as i64 - *n as i64).abs();
+        if diff <= t as i64 {
             return true;
         }
     }
