@@ -135,6 +135,7 @@ pub mod a921;
 pub mod a95;
 pub mod a96;
 pub mod a98;
+pub mod a99;
 pub mod a9_s2;
 pub mod a9_s3;
 mod knife;
