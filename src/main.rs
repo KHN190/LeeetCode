@@ -10,6 +10,7 @@ pub mod a1044_s2;
 pub mod a107;
 pub mod a109;
 pub mod a11;
+pub mod a110;
 pub mod a112;
 pub mod a113;
 pub mod a1137;
