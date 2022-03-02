@@ -76,6 +76,7 @@ pub mod a316;
 pub mod a32;
 pub mod a324;
 pub mod a33;
+pub mod a339;
 pub mod a34;
 pub mod a347;
 pub mod a347_s2;
