@@ -34,3 +34,5 @@ with open('src/main.rs', 'w+') as f:
 # format main.rs
 os.system('rustfmt src/main.rs')
 os.system('cargo test')
+
+os.system('python3 scripts/*.py')
