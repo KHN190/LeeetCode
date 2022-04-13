@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/valid-number/
+
 pub fn is_number(s: String) -> bool {
     if let Some(e) = s.chars().position(|c| c == 'e' || c == 'E') {
         is_decimal(&s[0..e]) && is_integer(&s[e + 1..])
