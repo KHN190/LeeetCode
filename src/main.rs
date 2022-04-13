@@ -117,6 +117,7 @@ pub mod a62;
 pub mod a621;
 pub mod a62_s2;
 pub mod a64;
+pub mod a65;
 pub mod a67;
 pub mod a684;
 pub mod a695;
