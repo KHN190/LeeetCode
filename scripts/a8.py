@@ -1,3 +1,5 @@
+# LC 246
+
 class Solution:
     def isStrobogrammatic(self, num):
         strobo = {1: 1, 6: 9, 8: 8, 9: 6, 0: 0}
